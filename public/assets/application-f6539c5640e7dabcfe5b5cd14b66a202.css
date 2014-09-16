@@ -1,0 +1,70 @@
+/* line 6, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 11, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.center-horizontal {
+  text-align: center;
+  font-family: helvetica;
+}
+/* line 14, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.center-horizontal h1 {
+  font-size: 4em;
+}
+/* line 17, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.center-horizontal h3 {
+  display: inline;
+  font-family: helvetica;
+  margin: 10px;
+}
+
+/* line 24, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.container {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-width: 1px;
+  border-color: lightgray;
+  border-style: solid;
+}
+/* line 31, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.container img {
+  width: 20%;
+  height: auto;
+}
+/* line 35, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+.container p {
+  text-align: justify;
+  margin: 10px auto;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  /* line 43, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+  body {
+    font-size: 14px;
+  }
+  /* line 46, C:/Users/Terence/Documents/Code/portfolio/app/assets/stylesheets/static_pages.css.scss */
+  body .container img {
+    width: 100%;
+    height: auto;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

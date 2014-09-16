@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
 	def about
 		render 'about'
 	end
+	def rep
+		render 'rep'
+	end
 end
