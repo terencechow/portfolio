@@ -261,6 +261,19 @@ body {
 
 }
 
+@media (max-width:400px) and (max-height:700px) {
+	.project-header{
+		height:12%;
+		h1 {
+			top:35%;
+		}
+	}
+	.menu{
+		display:none;
+	}
+
+}
+
 
 
 
