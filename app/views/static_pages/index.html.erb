@@ -1,19 +1,68 @@
-<div class="center-horizontal">
-<h1>
-	Terence Chow
-</h1>
+<div class="menu" data-0="opacity:0;" data-100p="opacity:1;"> TERENCE CHOW</div>
+
+<div class="background-img">
+	<div class="overlay"></div>
+	<img src=<%=asset_path "me2blurred.jpg"%>>
 </div>
-<div class="center-horizontal">
-	<a href="/"><h3>Projects</h3></a><a href="/static_pages/about"><h3>About Me</h3></a>
-</div>
-<div class="container center-horizontal">
-	<h4>Icebreaker</h4>
-	<a href="/static_pages/icebreaker">
-		<img src=<%= asset_path "cards.png"%>>
-	</a>
+
+<div class="title"> Hi I'm Terence!</div>
+
+<div class="description">
+	<div>
+	I build things I think are awesome!</div> <div>Check out some things I've worked on</div>
 	
-	<h4>Rep</h4>
-	<a href="/static_pages/rep">
-	<img src=<%= asset_path "rep.png"%>>	
-	</a>
+	<a href="#icebreaker" data-menu-offset="100p"><div class="project"><i class="fa fa-heart"></i>IceBreaker</div></a>
+	
+	
+	<a href="#"><div class="project"><i class="fa fa-building-o"></i>REP </div></a>
+	
+</div>
+
+<div class="connect"> Connect with me!</div>
+
+<div class= "icons">
+	<a href="https://twitter.com/TerencesTweets"><i class="fa fa-twitter"></i></a>
+	<a href="http://ca.linkedin.com/pub/terence-chow/68/778/190/"><i class="fa fa-linkedin-square"></i></a>
+	<a href="https://github.com/chowza"<i class="fa fa-github"></i></a>
+	<a href="mailto:terence.chow.1986@gmail.com"><i class="fa fa-envelope-o"></i></a>
+</div>
+
+<div id="icebreaker">
+	<div class="project-header">
+		<h1>
+			ICEBREAKER.
+		</h1>
+	</div>
+	<div class="project-description">
+		A dating app where matches expire in 24 hours. 
+		<br>
+		<br>
+		Built with Cordova (PhoneGap), HTML5, CSS, Javscript, AngularJS, Ionic Framework, Rails &#38; Posgresql
+		
+	</div>
+	<div class="arrows">
+		<a href="#icebreaker"><i id="left-arrow" class="fa fa-arrow-left" onclick='showLeftIBScreenshots();return false;'></i></a>
+		<a href="#icebreaker"><i id="right-arrow" class="fa fa-arrow-right" onclick='showRightIBScreenshots();return false;'></i></a>
+	</div>
+	
+	<div class="project-screenshots">
+		
+		<img id="image_1" src=<%= asset_path "login.png"%>>	
+		<img id="image_2" src=<%= asset_path "profile.png"%>>
+		<img id="image_3" src=<%= asset_path "settings.png"%>>
+		<img id="image_4" src=<%= asset_path "choose_photos.png"%>>
+		<img id="image_5" src=<%= asset_path "click_images.png"%>>
+		<img id="image_6" src=<%= asset_path "availability.png"%>>
+		<img id="image_7" src=<%= asset_path "cards.png"%>>
+		<img id="image_8" src=<%= asset_path "popup.png"%>>
+		<img id="image_9" src=<%= asset_path "matches.png"%>>
+		<img id="image_10" src=<%= asset_path "chat.png"%>>
+	</div>
+	<div class="left-margin-screenshot-blocker">
+		
+	</div>
+	<div class="right-margin-screenshot-blocker">
+		
+	</div>
+
 </div>
