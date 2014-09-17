@@ -272,9 +272,16 @@ body {
 	.mobile-menu{
 		display:inherit;
 	}
-	
+
 	.background-img{
+		height:100%;
+		width:100%;
+		overflow:hidden;
+		position:absolute;
 		img {
+			position:absolute;
+			top:50%;
+			left:50%;
 			-webkit-transform: translate(-50%, -50%);
 			-moz-transform: translate(-50%, -50%);
 			-ms-transform: translate(-50%, -50%);
