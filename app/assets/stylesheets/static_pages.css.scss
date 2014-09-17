@@ -308,6 +308,27 @@ body {
 }
 
 
+@media (max-width:700px) and (max-device-width:700px){
+	.title{
+		right:7%;
+		left:inherit;	
+	}	
+	.description {
+		right:7%;
+		left:inherit;
+		text-align:right;
+	}
+}
+
+
+@media (max-width:700px) {
+	.menu {
+		display:none;
+	}
+	.mobile-menu{
+		display:inherit;
+	}
+}
 
 
 
