@@ -1,6 +1,7 @@
-<div class="menu" data-0="opacity:0;" data-100p="opacity:1;"> TERENCE CHOW</div>
+<a href="#rep" class="menu" data-0="opacity:0;z-index:0;" data-100p="opacity:1;z-index:10000;" data-200p="opacity:0;z-index:0;"data-menu-offset="200p"> NEXT PROJECT</a>
+<a href="#top" class="menu" data-0="opacity:0;z-index:0" data-100p="opacity:0;z-index:0;" data-200p="opacity:1;z-index:10000;" data-menu-offset="0p"> BACK TO TOP</a>
 
-<div class="background-img">
+<div class="background-img" id="top">
 	<div class="overlay"></div>
 	<img src=<%=asset_path "me2blurred.jpg"%>>
 </div>
@@ -14,7 +15,7 @@
 	<a href="#icebreaker" data-menu-offset="100p"><div class="project"><i class="fa fa-heart"></i>IceBreaker</div></a>
 	
 	
-	<a href="#"><div class="project"><i class="fa fa-building-o"></i>REP </div></a>
+	<a href="#rep" data-menu-offset="200p"><div class="project"><i class="fa fa-building-o"></i>REP </div></a>
 	
 </div>
 
@@ -65,4 +66,25 @@
 		
 	</div>
 
+</div>
+
+<div id="rep">
+	<div class="project-header">
+		<h1> R.E.P
+		</h1>
+	</div>
+	<div class="project-description">
+		A web app providing Real Estate Prices to buyers and sellers.
+	<br>
+	<br>
+		Built with Rails using Google Map API, Gmail Data Scraping, and an Automatic E-mailer
+	</div>
+	<div class="arrows">
+		<a id="left-arrow-rep" href="#rep"><i class="fa fa-arrow-left" onclick='showLeftREPScreenshots();return false;'></i></a>
+		<a id="right-arrow-rep" href="#rep"><i class="fa fa-arrow-right" onclick='showRightREPScreenshots();return false;'></i></a>
+	</div>
+	<div class="project-screenshots">
+		<img id="rep_2" src=<%= asset_path "rep2.png"%>>
+		<img id="rep_3" src=<%= asset_path "rep3.png"%>>
+	</div>
 </div>

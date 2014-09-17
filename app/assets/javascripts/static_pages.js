@@ -183,3 +183,32 @@ showLeftIBScreenshots = function() {
   }
 };
 
+
+showRightREPScreenshots = function(){
+  $("#rep_2").animate({
+    opacity: 0
+  }, 800);
+  $("#rep_3").animate({
+    opacity: 1
+  }, 800);
+  
+  $("#right-arrow-rep").fadeTo(300,0,function(){
+    $("#right-arrow-rep").css("visibility","hidden");  
+  });
+  $("#left-arrow-rep").css("visibility","visible");
+  $("#left-arrow-rep").fadeTo(300,1);
+}
+
+showLeftREPScreenshots = function(){
+  $("#rep_2").animate({
+    opacity: 1
+  }, 800);
+  $("#rep_3").animate({
+    opacity: 0
+  }, 800);
+  $("#right-arrow-rep").css("visibility","visible");
+  $("#right-arrow-rep").fadeTo(300,1);
+  $("#left-arrow-rep").fadeTo(300,0,function(){
+    $("#left-arrow-rep").css("visibility","hidden");  
+  }); 
+}
