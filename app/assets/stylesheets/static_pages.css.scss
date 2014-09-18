@@ -18,6 +18,7 @@ body {
 #skrollr-body{
 	height:100%;
 	width:100%;
+	float:left;
 }
 
 .menu{
@@ -282,6 +283,7 @@ body {
 	}
 	.description{
 		min-width:200px;
+		margin-top:20px;
 	}
 	#skrollr-body .description .mobile {
 		display:inherit;
@@ -289,6 +291,7 @@ body {
 	#skrollr-body .description a .project i {
 		margin-right:2%;
 	}
+
 	.non-mobile{
 		display:none;
 	}
@@ -326,6 +329,7 @@ body {
 	}
 	.description{
 		min-width:200px;
+		margin-top:20px;
 	}
 	#skrollr-body .description .mobile {
 		display:inherit;
