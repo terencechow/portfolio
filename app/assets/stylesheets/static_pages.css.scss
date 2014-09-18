@@ -280,8 +280,14 @@ body {
 	.mobile-menu{
 		display:inherit;
 	}
-	.mobile {
+	.description{
+		min-width:200px;
+	}
+	#skrollr-body .description .mobile {
 		display:inherit;
+	}
+	#skrollr-body .description a .project i {
+		margin-right:2%;
 	}
 	.non-mobile{
 		display:none;
@@ -318,8 +324,14 @@ body {
 	.mobile-menu{
 		display:inherit;
 	}
-	.mobile {
+	.description{
+		min-width:200px;
+	}
+	#skrollr-body .description .mobile {
 		display:inherit;
+	}
+	#skrollr-body .description a .project i {
+		margin-right:2%;
 	}
 	.non-mobile{
 		display:none;
