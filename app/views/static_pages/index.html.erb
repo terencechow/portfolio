@@ -63,14 +63,14 @@
 			<br>
 			Built with Cordova (PhoneGap), HTML5, CSS, Javscript, AngularJS, Ionic Framework, Rails &#38; Posgresql
 		</div>
-		<div class="arrows">
-			<a id="left-arrow" href="#icebreaker">
-				<i class="fa fa-arrow-left" onclick='showLeftIBScreenshots();return false;'></i>
+		
+			<a class="left-arrows" id="left-arrow" href="#icebreaker">
+				<i class="fa fa-arrow-circle-left" onclick='showLeftIBScreenshots();return false;'></i>
 			</a>
-			<a id="right-arrow" href="#icebreaker">
-				<i class="fa fa-arrow-right" onclick='showRightIBScreenshots();return false;'></i>
+			<a class="right-arrows" id="right-arrow" href="#icebreaker">
+				<i class="fa fa-arrow-circle-right" onclick='showRightIBScreenshots();return false;'></i>
 			</a>
-		</div>
+		
 		
 		<div class="project-screenshots">
 			
@@ -105,17 +105,19 @@
 		<br>
 			Built with Rails using Google Map API, Gmail Data Scraping, and an Automatic E-mailer
 		</div>
-		<div class="arrows">
-			<a id="left-arrow-rep" href="#rep">
-				<i class="fa fa-arrow-left" onclick='showLeftREPScreenshots();return false;'></i>
-			</a>
-			<a id="right-arrow-rep" href="#rep">
-				<i class="fa fa-arrow-right" onclick='showRightREPScreenshots();return false;'></i>
-			</a>
-		</div>
+		
+			
 		<div class="project-screenshots">
 			<img id="rep_2" src=<%= asset_path "rep2medium.jpg"%>>
 			<img id="rep_3" src=<%= asset_path "rep3medium.jpg"%>>
+		</div>
+		<div class="bottom-arrows">
+			<a id="left-arrow-rep" href="#rep">
+				<i class="fa fa-arrow-circle-left" onclick='showLeftREPScreenshots();return false;'></i>
+			</a>
+			<a id="right-arrow-rep" href="#rep">
+				<i class="fa fa-arrow-circle-right" onclick='showRightREPScreenshots();return false;'></i>
+			</a>
 		</div>
 		<div class="left-margin-screenshot-blocker-rep">
 			
