@@ -5,9 +5,13 @@
 
 
 $(document).ready(function() {
-  
-  var s;
+
+  alert(navigator.userAgent);
+  alert(navigator.vendor);
+  alert(window.opera);
+
   if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+    var s;
     s = skrollr.init({
       forceHeight: false
     });
