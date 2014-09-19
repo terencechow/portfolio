@@ -48,7 +48,7 @@ body {
 	width:100%;
 	overflow:hidden;
 	position:absolute;
-	z-index:3;
+	z-index:4;
 	img {
 		position:absolute;
 		top:50%;
@@ -64,7 +64,7 @@ body {
 		height:100%;
 		width:100%;
 		position:absolute;
-		z-index:4;
+		z-index:5;
 	}
 }
 
@@ -77,7 +77,7 @@ body {
 		font-size:2.5em;
 		text-align:center;
 		color:white;
-		z-index: 5;
+		z-index: 6;
 	}	
 
 .description {
@@ -86,7 +86,7 @@ body {
 	left:7%;
 	top:19%;
 	color:white;
-	z-index:5;
+	z-index:6;
 	line-height: 1.5em;
 	.mobile{
 		display:none;
@@ -112,7 +112,7 @@ body {
 	bottom:15%;
 	color:white;
 	font-size:1.3em;
-	z-index:5;
+	z-index:6;
 	position:absolute;
 }
 
@@ -121,7 +121,7 @@ body {
 	bottom:10%;
 	color:white;
 	font-size:1.5em;
-	z-index:5;
+	z-index:6;
 	position:absolute;
 	a {
 		text-decoration:none;
@@ -271,7 +271,7 @@ body {
 	height:100%;
 	width:5%;
 	left:0;
-	z-index:1;
+	z-index:2;
 	background-color:#f8f8f8;
 }
 .right-margin-screenshot-blocker-rep{
@@ -289,7 +289,7 @@ body {
 	height:100%;
 	width:5%;
 	left:0;
-	z-index:1;
+	z-index:4;
 	background-color:#f8f8f8;
 }
 
@@ -326,12 +326,12 @@ body {
 	#up-arrow{
 		top:0;
 		left:0;
-		z-index:2;
+		z-index:5;
 	}
 	#down-arrow{
 		bottom:0;
 		left:0;
-		z-index:2;
+		z-index:3;
 	}
 	.description{
 		min-width:200px;
@@ -392,6 +392,12 @@ body {
 	.non-mobile{
 		display:none;
 	}
+	.left-arrows{
+		font-size:1em;
+	}
+	.right-arrows{
+		font-size:1em;
+	}
 }
 
 
@@ -414,6 +420,13 @@ body {
 	}
 	.mobile-menu{
 		display:inherit;
+	}
+
+	.left-arrows{
+		font-size:1em;
+	}
+	.right-arrows{
+		font-size:1em;
 	}
 }
 
