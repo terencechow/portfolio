@@ -33,12 +33,12 @@ body {
 }
 .mobile-menu{
 	position:fixed;
-	top:0;
+	/*top:0;
 	left:0;
-	background-color:black;
+	*/background-color:black;
 	color:white;
 	text-decoration: none;
-	z-index:10000;
+	/*z-index:10000;*/
 	display:none;
 	padding:2px;
 }
@@ -48,6 +48,7 @@ body {
 	width:100%;
 	overflow:hidden;
 	position:absolute;
+	z-index:3;
 	img {
 		position:absolute;
 		top:50%;
@@ -63,7 +64,7 @@ body {
 		height:100%;
 		width:100%;
 		position:absolute;
-		z-index:2;
+		z-index:4;
 	}
 }
 
@@ -135,6 +136,10 @@ body {
 	height:100%;
 	width:100%;
 	background-color:#f8f8f8;
+	border-top-style:solid;
+	border-top-color:darkgray;
+	border-top-width:1px;
+	overflow:hidden;
 	.project-screenshots {
 		width:90%;
 		img {
@@ -158,7 +163,8 @@ body {
 	top:100%;
 	height:100%;
 	width:100%;
-	background-color:#f4f4f4;
+	background-color:#f8f8f8;
+	overflow:hidden;
 }
 .project-header{
 	margin-right:5%;
@@ -241,8 +247,8 @@ body {
 	height:100%;
 	width:5%;
 	right:0;
-	z-index:6;
-	background-color:#f4f4f4;
+	z-index:1;
+	background-color:#f8f8f8;
 }
 .left-margin-screenshot-blocker{
 	position:absolute;
@@ -250,8 +256,8 @@ body {
 	height:100%;
 	width:5%;
 	left:0;
-	z-index:6;
-	background-color:#f4f4f4;
+	z-index:1;
+	background-color:#f8f8f8;
 }
 .right-margin-screenshot-blocker-rep{
 	position:absolute;
@@ -259,7 +265,7 @@ body {
 	height:100%;
 	width:5%;
 	right:0;
-	z-index:6;
+	z-index:1;
 	background-color:#f8f8f8;
 }
 .left-margin-screenshot-blocker-rep{
@@ -268,7 +274,7 @@ body {
 	height:100%;
 	width:5%;
 	left:0;
-	z-index:6;
+	z-index:1;
 	background-color:#f8f8f8;
 }
 
@@ -300,6 +306,17 @@ body {
 
 	.mobile-menu{
 		display:inherit;
+
+	}
+	#up-arrow{
+		top:0;
+		left:0;
+		z-index:2;
+	}
+	#down-arrow{
+		bottom:0;
+		left:0;
+		z-index:2;
 	}
 	.description{
 		min-width:200px;
