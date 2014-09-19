@@ -31,6 +31,17 @@ body {
 	text-decoration: none;
 	z-index:10000;
 }
+.mobile-menu{
+	position:fixed;
+	/*top:0;
+	left:0;
+	*/background-color:black;
+	color:white;
+	text-decoration: none;
+	/*z-index:10000;*/
+	display:none;
+	padding:2px;
+}
 
 .background-img{
 	height:100%;
@@ -307,6 +318,9 @@ body {
 	.menu{
 		display:none;
 	}
+	.mobile-menu{
+		display:inherit;
+	}
 
 	.description{
 		min-width:200px;
@@ -351,6 +365,10 @@ body {
 	.menu{
 		display:none;
 	}
+
+	.mobile-menu{
+		display:inherit;
+	}
 	.description{
 		min-width:200px;
 		margin-top:20px;
@@ -389,6 +407,10 @@ body {
 @media (max-width:640px) {
 	.menu {
 		display:none;
+	}
+	
+	.mobile-menu{
+		display:inherit;
 	}
 	
 	.left-arrows{
