@@ -12,6 +12,8 @@ $(document).ready(function() {
       forceHeight: false
     });
     skrollr.menu.init(s);
+  } else {
+    $(".mobile-menu").css("display","none");
   }
   available_space = $(".project-description").width();
   $("#image_1").load(function() {
