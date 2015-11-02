@@ -1,132 +1,74 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
+var clicked = 0;
+var number_of_clicks;
+var space_to_move;
 
+function isMobileDevice (ua){
+  return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(ua)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(ua.substr(0,4))
+}
 
-
-$(document).ready(function() {
-
-  if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+function init(){
+  var ua = navigator.userAgent||navigator.vendor||window.opera;
+  if(!isMobileDevice(ua)){
     var s;
     s = skrollr.init({
       forceHeight: false
     });
     skrollr.menu.init(s);
-  } else {
-    $(".mobile-menu").css("display","none");
   }
-  available_space = $(".project-description").width();
-  $("#image_1").load(function() {
-    width_of_image = $("#image_1").width();
-    number_can_fit = Math.floor(available_space / width_of_image);
-    if (number_can_fit >1){
-      margin_to_add = (available_space - number_can_fit * width_of_image) / (number_can_fit -1);
-      window.number_of_clicks = Math.ceil(10 / number_can_fit);
-      window.number_of_clicks = (window.number_of_clicks == 1) ? 1: window.number_of_clicks -1;
-      window.space_to_move = available_space + margin_to_add;
-      $("#icebreaker .project-screenshots").children().css("margin-right", margin_to_add);  
-    } else {
-      margin_to_add = (available_space - width_of_image)/2;
-      $("#icebreaker .project-screenshots").children().css("margin-right", margin_to_add);
-      $("#icebreaker .project-screenshots").children().css("margin-left", margin_to_add);
-      window.number_of_clicks = 9;
-      window.space_to_move = margin_to_add*2 + width_of_image;
-    }
-  });
+}
 
-  $(window).resize(function(){
-    console.log("i'm resizing")
-      if (clicked >0){
-        $("#image_1").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_2").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_3").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_4").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_5").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_6").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_7").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_8").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_9").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        $("#image_10").animate({
-          left: "+=" + clicked * space_to_move
-        }, 800);
-        window.clicked = 0;
-        $("#left-arrow").fadeTo(300,0,function(){
-          $("#left-arrow").css("visibility","hidden");  
-        });
-        $("#right-arrow").css("visibility","visible");
-        $("#right-arrow").fadeTo(300,1);
-      }
-      available_space = $(".project-description").width();
-      width_of_image = $("#image_1").width();
-      number_can_fit = Math.floor(available_space / width_of_image);
-      if (number_can_fit >1){
-        margin_to_add = (available_space - number_can_fit * width_of_image) / (number_can_fit -1);
-        window.number_of_clicks = Math.ceil(10 / number_can_fit);
-        window.number_of_clicks = (window.number_of_clicks == 1) ? 1: window.number_of_clicks -1;
-        window.space_to_move = available_space + margin_to_add;
-        $("#icebreaker .project-screenshots").children().css("margin-right", margin_to_add);  
-      } else {
-        margin_to_add = (available_space - width_of_image)/2;
-        $("#icebreaker .project-screenshots").children().css("margin-right", margin_to_add);
-        $("#icebreaker .project-screenshots").children().css("margin-left", margin_to_add);
-        window.number_of_clicks = 9;
-        window.space_to_move = margin_to_add*2 + width_of_image;
-      }
-  });
-});
+function setGlobalVariables(available_space){
+  var width_of_image = $("#image_1").width();
+  var number_can_fit = Math.floor(available_space / width_of_image);
+  if (number_can_fit >1){
+    var margin_to_add = (available_space - number_can_fit * width_of_image) / (number_can_fit -1);
+    number_of_clicks = Math.ceil(10 / number_can_fit);
+    number_of_clicks = (number_of_clicks == 1) ? 1: number_of_clicks -1;
+    space_to_move = available_space + margin_to_add;
+    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-right", margin_to_add);  
+  } else {
+    var margin_to_add = (available_space - width_of_image)/2;
+    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-right", margin_to_add);
+    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-left", margin_to_add);
+    number_of_clicks = 9;
+    space_to_move = margin_to_add*2 + width_of_image;
+  }
 
+  console.log(width_of_image,number_can_fit,available_space,margin_to_add,number_of_clicks)
+}
 
+function animateImages(element,direction, amountToMove){
 
-var clicked = 0;
+  var selector = element ? "#" + element+" .project-screenshots img" : ".project-screenshots img";
+  $(selector).animate({
+      left: direction + "=" + amountToMove
+    }, 800);
+}
+
+function onResize(){
+  if (clicked >0){
+    var amountToMove = space_to_move * clicked
+    animateImages("icebreaker","+", amountToMove);
+    clicked = 0;
+
+    $("#left-arrow").fadeTo(300,0,function(){
+        $("#left-arrow").css("visibility","hidden");  
+    });
+    $("#right-arrow").css("visibility","visible");
+    $("#right-arrow").fadeTo(300,1);
+
+    var available_space = $(".project-description").width();
+    console.log(available_space)
+    setGlobalVariables(available_space); 
+  }
+}
 
 showRightIBScreenshots = function() {
   if (clicked < number_of_clicks) {
-    $("#image_1").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_2").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_3").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_4").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_5").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_6").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_7").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_8").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_9").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    $("#image_10").animate({
+    $("#icebreaker .project-screenshots img").animate({
       left: "-=" + space_to_move
     }, 800);
     clicked +=1;
@@ -144,34 +86,7 @@ showRightIBScreenshots = function() {
 
 showLeftIBScreenshots = function() {
   if (clicked > 0) {
-    $("#image_1").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_2").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_3").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_4").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_5").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_6").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_7").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_8").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_9").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    $("#image_10").animate({
+    $("#icebreaker .project-screenshots img").animate({
       left: "+=" + space_to_move
     }, 800);
     clicked -=1;
@@ -216,3 +131,13 @@ showLeftREPScreenshots = function(){
     $("#left-arrow-rep").css("visibility","hidden");  
   }); 
 }
+
+$(document).ready(function() {
+  
+  init();
+
+  var available_space = $(".project-screenshots").width();
+  $("#image_1").load(setGlobalVariables.bind(null,available_space));
+  
+  $(window).resize(onResize);
+});
