@@ -25,28 +25,27 @@ function addSlick(sectionId,slidesToShow){
 
 function addSlickForAll(){
 	if ($(window).width() > 900 ){
-		$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',6) })
+		$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',6); $('#icebreaker').fadeTo(50,1) })
 		
-		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',2) })
-		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',2) })
-		$("#humber").imagesLoaded(function(){ addSlick('#humber',2) })
-		$("#organic").imagesLoaded(function(){ addSlick('#organic',2) })
-		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',2) })
-		$("#rep").imagesLoaded(function(){ addSlick('#rep',2) })
+		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',2); $('#slsite').fadeTo(50,1) })
+		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',2); $('#highrise').fadeTo(50,1) })
+		$("#humber").imagesLoaded(function(){ addSlick('#humber',2); $('#humber').fadeTo(50,1) })
+		$("#organic").imagesLoaded(function(){ addSlick('#organic',2); $('#organic').fadeTo(50,1) })
+		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',2); $('#whateverlinda').fadeTo(50,1) })
+		$("#rep").imagesLoaded(function(){ addSlick('#rep',2); $('#rep').fadeTo(50,1) })
 	} else {
 		if ($(window).width() > 500 ){
-			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',2) })
+			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',2); $('#icebreaker').fadeTo(50,1) })
 		} else {
-			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',1) })
+			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',1); $('#icebreaker').fadeTo(50,1) })
 		}	
-		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',1)  })
-		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',1)  })
-		$("#humber").imagesLoaded(function(){ addSlick('#humber',1)  })
-		$("#organic").imagesLoaded(function(){ addSlick('#organic',1)  })
-		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',1)  })
-		$("#rep").imagesLoaded(function(){ addSlick('#rep',1)  })
-	} 
-	
+		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',1); $('#slsite').fadeTo(50,1)  })
+		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',1); $('#highrise').fadeTo(50,1) })
+		$("#humber").imagesLoaded(function(){ addSlick('#humber',1); $('#humber').fadeTo(50,1)  })
+		$("#organic").imagesLoaded(function(){ addSlick('#organic',1); $('#organic').fadeTo(50,1)  })
+		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',1); $('#whateverlinda').fadeTo(50,1)  })
+		$("#rep").imagesLoaded(function(){ addSlick('#rep',1); $('#rep').fadeTo(50,1)  })
+	}
 }
 
 function removeSlick(sectionId){
