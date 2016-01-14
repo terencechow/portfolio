@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require skrollr
-//= require skrollr.menu
+//= require jquery.slick
 //= require_tree .

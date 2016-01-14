@@ -1,143 +1,118 @@
 // # Place all the behaviors and hooks related to the matching controller here.
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
-var clicked = 0;
-var number_of_clicks;
-var space_to_move;
 
-function isMobileDevice (ua){
-  return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(ua)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(ua.substr(0,4))
-}
+
+$(document).ready(function(){
+	init();
+})
 
 function init(){
-  var ua = navigator.userAgent||navigator.vendor||window.opera;
-  if(!isMobileDevice(ua)){
-    var s;
-    s = skrollr.init({
-      forceHeight: false
-    });
-    skrollr.menu.init(s);
-  }
+	addSlickForAll();
+	addEventHandlers();
+	$(window).resize(onResize);
 }
 
-function setGlobalVariables(available_space){
-  var width_of_image = $("#image_1").width();
-  var number_can_fit = Math.floor(available_space / width_of_image);
-  if (number_can_fit >1){
-    var margin_to_add = (available_space - number_can_fit * width_of_image) / (number_can_fit -1);
-    number_of_clicks = Math.ceil(10 / number_can_fit);
-    number_of_clicks = (number_of_clicks == 1) ? 1: number_of_clicks -1;
-    space_to_move = available_space + margin_to_add;
-    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-right", margin_to_add);  
-  } else {
-    var margin_to_add = (available_space - width_of_image)/2;
-    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-right", margin_to_add);
-    $("#icebreaker .project-screenshots .project-screenshots-innerContainer").children().css("margin-left", margin_to_add);
-    number_of_clicks = 9;
-    space_to_move = margin_to_add*2 + width_of_image;
-  }
-
-  console.log(width_of_image,number_can_fit,available_space,margin_to_add,number_of_clicks)
+function addSlick(sectionId,slidesToShow){
+	$( sectionId + ' .project-screenshots-innerContainer').slick({
+	  infinite: false,
+	  slidesToShow: slidesToShow,
+	  slidesToScroll: slidesToShow,
+	  prevArrow: sectionId + ' .left-arrows',
+	  nextArrow: sectionId + ' .right-arrows'
+	});	
 }
 
-function animateImages(element,direction, amountToMove){
+function addSlickForAll(){
+	console.log("adding slick for all")
+	if ($(window).width() > 900 ){
+		addSlick('#icebreaker',6)
+		addSlick('#slsite',2)
+		addSlick('#highrise',2)
+		addSlick('#humber',2)
+		addSlick('#organic',2)
+		addSlick('#whateverlinda',2)
+		addSlick('#rep',2)
+	} else {
+		if ($(window).width() > 500 ){
+			addSlick('#icebreaker',2)
+		} else {
+			addSlick('#icebreaker',1)
+		}	
+		addSlick('#slsite',1)
+		addSlick('#highrise',1)
+		addSlick('#humber',1)
+		addSlick('#organic',1)
+		addSlick('#whateverlinda',1)
+		addSlick('#rep',1)
+	} 
+	
+}
 
-  var selector = element ? "#" + element+" .project-screenshots img" : ".project-screenshots img";
-  $(selector).animate({
-      left: direction + "=" + amountToMove
-    }, 800);
+function removeSlick(sectionId){
+	$( sectionId + ' .project-screenshots-innerContainer').slick('unslick');
 }
 
 function onResize(){
-  if (clicked >0){
-    var amountToMove = space_to_move * clicked
-    animateImages("icebreaker","+", amountToMove);
-    clicked = 0;
-
-    $("#left-arrow").fadeTo(300,0,function(){
-        $("#left-arrow").css("visibility","hidden");  
-    });
-    $("#right-arrow").css("visibility","visible");
-    $("#right-arrow").fadeTo(300,1);
-
-    var available_space = $(".project-description").width();
-    console.log(available_space)
-    setGlobalVariables(available_space); 
-  }
+	removeSlick('#icebreaker');
+	removeSlick('#slsite');
+	removeSlick('#highrise');
+	removeSlick('#humber');
+	removeSlick('#organic');
+	removeSlick('#whateverlinda');
+	removeSlick('#rep');
+	addSlickForAll();	
 }
 
-showRightIBScreenshots = function() {
-  if (clicked < number_of_clicks) {
-    $("#icebreaker .project-screenshots img").animate({
-      left: "-=" + space_to_move
-    }, 800);
-    clicked +=1;
-    if (clicked == number_of_clicks){
-      $("#right-arrow").fadeTo(300,0,function(){
-        $("#right-arrow").css("visibility","hidden");
-      })
-    } 
-    if (clicked == 1) {
-      $("#left-arrow").css("visibility","visible");
-      $("#left-arrow").fadeTo(300,1);
-    }
-  }
-};
-
-showLeftIBScreenshots = function() {
-  if (clicked > 0) {
-    $("#icebreaker .project-screenshots img").animate({
-      left: "+=" + space_to_move
-    }, 800);
-    clicked -=1;
-    if (clicked == number_of_clicks -1){
-      $("#right-arrow").css("visibility","visible");
-      $("#right-arrow").fadeTo(300,1);
-    }
-    if (clicked == 0){
-      $("#left-arrow").fadeTo(300,0,function(){
-        $("#left-arrow").css("visibility","hidden");  
-      });
-    }
-  }
-};
-
-
-showRightREPScreenshots = function(){
-  $("#rep_2").animate({
-    opacity: 0
-  }, 800);
-  $("#rep_3").animate({
-    opacity: 1
-  }, 800);
-  
-  $("#right-arrow-rep").fadeTo(300,0,function(){
-    $("#right-arrow-rep").css("visibility","hidden");  
-  });
-  $("#left-arrow-rep").css("visibility","visible");
-  $("#left-arrow-rep").fadeTo(300,1);
+function addEventHandlers(){
+	$('.right-arrows').on('click',handleRightArrowClicked);
+	$('.left-arrows').on('click',handleLeftArrowClicked);
 }
 
-showLeftREPScreenshots = function(){
-  $("#rep_2").animate({
-    opacity: 1
-  }, 800);
-  $("#rep_3").animate({
-    opacity: 0
-  }, 800);
-  $("#right-arrow-rep").css("visibility","visible");
-  $("#right-arrow-rep").fadeTo(300,1);
-  $("#left-arrow-rep").fadeTo(300,0,function(){
-    $("#left-arrow-rep").css("visibility","hidden");  
-  }); 
+function handleRightArrowClicked(e){
+	var projectsScreenshots = $(e.currentTarget.offsetParent);
+	var image = projectsScreenshots.find('img');
+	var numberOfImagesShown = projectsScreenshots.width() / image.outerWidth();
+	var translationContainer = projectsScreenshots.find('.slick-track');
+
+	var translationAmount =translationContainer.css('transform') ? translationContainer.css('transform').split(",")[4] : 
+	translationContainer.css('-webkit-transform') ? translationContainer.css('-webkit-transform') .split(",")[4] : 
+	translationContainer.css('-moz-transform') ? translationContainer.css('-moz-transform') .split(",")[4] : translationContainer.css('-ms-transform') .split(",")[4] 
+
+	var translationAmount = parseInt(translationAmount);
+
+	//10 is arbitrarily used for rounding
+	if (translationAmount + translationContainer.width() - numberOfImagesShown * image.outerWidth() * 2 < 10){
+		//hide right arrow
+		projectsScreenshots.find('.right-arrows').fadeTo(300,0).hide();
+		console.log("hiding right arrow")
+	} else if (translationAmount == 0){
+		//show left arrow
+		console.log("showing left arrow")
+		projectsScreenshots.find('.left-arrows').fadeTo(300,1).show();
+	}
 }
 
-$(document).ready(function() {
-  
-  init();
+function handleLeftArrowClicked(e){
+	var projectsScreenshots = $(e.currentTarget.offsetParent);
+	var image = projectsScreenshots.find('img');
+	var numberOfImagesShown = projectsScreenshots.width() / image.outerWidth();
+	var translationContainer = projectsScreenshots.find('.slick-track');
 
-  var available_space = $(".project-screenshots").width();
-  $("#image_1").load(setGlobalVariables.bind(null,available_space));
-  
-  $(window).resize(onResize);
-});
+	var translationAmount =translationContainer.css('transform') ? translationContainer.css('transform').split(",")[4] : 
+	translationContainer.css('-webkit-transform') ? translationContainer.css('-webkit-transform') .split(",")[4] : 
+	translationContainer.css('-moz-transform') ? translationContainer.css('-moz-transform') .split(",")[4] : translationContainer.css('-ms-transform') .split(",")[4] 
+
+	var translationAmount = parseInt(translationAmount);
+
+	//10 is arbitrarily used for rounding
+	if (translationAmount + translationContainer.width() - numberOfImagesShown * image.outerWidth() < 10){
+		//show right arrow
+		projectsScreenshots.find('.right-arrows').fadeTo(300,1).show();
+		console.log("showing right arrow")
+	} else if (translationAmount + numberOfImagesShown * image.outerWidth() >= 0){
+		//hide left arrow
+		console.log("hiding left arrow")
+		projectsScreenshots.find('.left-arrows').fadeTo(300,0).hide();
+	}
+}

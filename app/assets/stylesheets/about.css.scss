@@ -1,9 +1,9 @@
 .background-img{
 	height:100%;
 	width:100%;
-	overflow:hidden;
-	position:absolute;
 	z-index:4;
+	overflow: hidden;
+	position: relative;
 	img {
 		position:absolute;
 		top:50%;

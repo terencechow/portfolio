@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 gem 'rails_12factor', group: :production
-gem 'skrollr-rails', '~> 0.6.26'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -24,6 +23,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+
+gem "jquery-slick-rails", '~> 1.5.8.1'
 
 gem 'font-awesome-rails'
 # Use ActiveModel has_secure_password
