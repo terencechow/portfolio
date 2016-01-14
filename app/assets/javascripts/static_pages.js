@@ -24,27 +24,27 @@ function addSlick(sectionId,slidesToShow){
 }
 
 function addSlickForAll(){
-	console.log("adding slick for all")
 	if ($(window).width() > 900 ){
-		addSlick('#icebreaker',6)
-		addSlick('#slsite',2)
-		addSlick('#highrise',2)
-		addSlick('#humber',2)
-		addSlick('#organic',2)
-		addSlick('#whateverlinda',2)
-		addSlick('#rep',2)
+		$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',6) })
+		
+		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',2) })
+		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',2) })
+		$("#humber").imagesLoaded(function(){ addSlick('#humber',2) })
+		$("#organic").imagesLoaded(function(){ addSlick('#organic',2) })
+		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',2) })
+		$("#rep").imagesLoaded(function(){ addSlick('#rep',2) })
 	} else {
 		if ($(window).width() > 500 ){
-			addSlick('#icebreaker',2)
+			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',2) })
 		} else {
-			addSlick('#icebreaker',1)
+			$("#icebreaker").imagesLoaded(function(){ addSlick('#icebreaker',1) })
 		}	
-		addSlick('#slsite',1)
-		addSlick('#highrise',1)
-		addSlick('#humber',1)
-		addSlick('#organic',1)
-		addSlick('#whateverlinda',1)
-		addSlick('#rep',1)
+		$("#slsite").imagesLoaded(function(){ addSlick('#slsite',1)  })
+		$("#highrise").imagesLoaded(function(){ addSlick('#highrise',1)  })
+		$("#humber").imagesLoaded(function(){ addSlick('#humber',1)  })
+		$("#organic").imagesLoaded(function(){ addSlick('#organic',1)  })
+		$("#whateverlinda").imagesLoaded(function(){ addSlick('#whateverlinda',1)  })
+		$("#rep").imagesLoaded(function(){ addSlick('#rep',1)  })
 	} 
 	
 }
@@ -85,10 +85,8 @@ function handleRightArrowClicked(e){
 	if (translationAmount + translationContainer.width() - numberOfImagesShown * image.outerWidth() * 2 < 10){
 		//hide right arrow
 		projectsScreenshots.find('.right-arrows').fadeTo(300,0).hide();
-		console.log("hiding right arrow")
 	} else if (translationAmount == 0){
 		//show left arrow
-		console.log("showing left arrow")
 		projectsScreenshots.find('.left-arrows').fadeTo(300,1).show();
 	}
 }
@@ -109,10 +107,8 @@ function handleLeftArrowClicked(e){
 	if (translationAmount + translationContainer.width() - numberOfImagesShown * image.outerWidth() < 10){
 		//show right arrow
 		projectsScreenshots.find('.right-arrows').fadeTo(300,1).show();
-		console.log("showing right arrow")
 	} else if (translationAmount + numberOfImagesShown * image.outerWidth() >= 0){
 		//hide left arrow
-		console.log("hiding left arrow")
 		projectsScreenshots.find('.left-arrows').fadeTo(300,0).hide();
 	}
 }

@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "jquery-slick-rails", '~> 1.5.8.1'
 
 gem 'font-awesome-rails'
+
+gem 'imagesLoaded_rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
